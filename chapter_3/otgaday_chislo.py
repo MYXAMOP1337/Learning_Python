@@ -1,27 +1,26 @@
-import random
+print("\t\t\tЗдравствуй, игрок!")
+print("Тебе предстоить сыграть с компьютером в 'Числа'.")
+print("Надо загадать число от 1 до 100, а компьютер попытается отгадать его.")
+number = int(input("Введите загаданное число: "))
 
-print('Добро пожаловать в игру "Отгадай число"')
-print('Я загадал натуральное число от 1 до 100')
-print('Постарайтесь отгадать его за 3 попытки')
-the_number = random.randint(1, 100)
-guess = int(input('Ваше предположение: '))
+computer_number = 50
 tries = 1
+low = 1
+high = 100
+print(computer_number)
 
-while guess != the_number:
-    if guess > the_number:
-        print('Меньше...')
+
+while computer_number != number:
+    if computer_number > number:
+        high = computer_number
     else:
-        print('Больше...')
+        low = computer_number
 
-    guess = int(input('Ваше предположение: '))
+    computer_number = low + (high - low) // 2
+
+    print(computer_number)
+
     tries += 1
 
-    if guess > the_number and tries >= 6:
-        print("Ну, для школы восьмого типа ты вполне умён")
-    elif guess < the_number and tries >= 6:
-        print("Азаза, моя бабушка отгадывает числа лучше")
-
-print('Вам удалось отгадать число! Это в самом деле', the_number)
-print('Вы затратили на угадывание лишь', tries, "попыток")
-if tries >= 6:
-    print(tries,'попытки(ок), ты гениален(нет)')
+print("Компьютер потратил", tries, "попытки(ок) на отгадывание твоего числа.")
+input("\n\nНажмите Enter, чтобы выйти из программы...")
